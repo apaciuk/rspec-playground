@@ -25,5 +25,13 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let (:user) { FactoryBot.create(:user) }
+  describe 'validations' do
+    it { 'creates a valid user' }
+    it { 'updates the inventory count' } 
+    
+    it 'checks if the user is an admin' do
+      expect(user).to_not be_admin
+    end
+  end
 end
